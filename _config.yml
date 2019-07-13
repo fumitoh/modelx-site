@@ -2,12 +2,12 @@
 title: modelx
 email: fumito.ham@gmail.com
 description: >
-  Official modelx site
+  Python-spreadsheets hybrid
 lang: en-US
 
 baseurl: "/modelx-site" # the subpath of your site, e.g. /blog/
 url: "https://fumitoh.github.io" # the base hostname & protocol for your site
-# git_address: https://github.com/aksakalli/jekyll-doc-theme
+git_address: https://github.com/fumitoh/modelx
 # git_edit_address: https://github.com/aksakalli/jekyll-doc-theme/blob/gh-pages
 twitter_username: fumitoham
 github_username: fumitoh

@@ -2,53 +2,134 @@
 layout: default
 ---
 
-<div class="header-container jumbotron">
-    <div class="container">
-        <h1>Jekyll Template for Project Websites</h1>
-        <p>Simple and modern design for publishing blog posts, documentation and many more things about your project.
-          You can now clone and start to create a website for your project like this one.</p>
-        <p><a class="btn btn-primary btn-lg" href="{{ "/docs/home/" | prepend: site.baseurl }}" role="button">Learn more</a></p>
-    </div>
-</div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2 class="header-light regular-pad">What is Jekyll?</h2>
-              <p class="lead">Jekyll is a simple, blog-aware, static site generator. It takes a template
-              directory containing raw text files in various formats, runs it through
-              a converter (like <a href="https://daringfireball.net/projects/markdown/">Markdown</a>)
-              and our <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> renderer, and
-              spits out a complete, ready-to-publish static website suitable
-              for serving with your favorite web server. Jekyll also happens to be the engine
-              behind <a href="https://pages.github.com">GitHub Pages</a>, which means you can use Jekyll
-              to host your project’s page, blog, or website from GitHub’s servers <strong>for
-              free</strong>.</p>
+            <h2 class="header-light regular-pad">What is <strong>modelx</strong>?</h2>
+              <p class="lead">modelx is an open-source formula modeling tool.
+              With modelx, you can build object-oriented numerical models,
+              such as actuarial or financial models,
+              just by creating model components and writing formulas in Python.
+              modelx is as versitile as spreadsheets
+              as it is equipped with rich features like formula dependency tracking,
+              and as elegant as Python,
+              as it embodies object-oriented concepts, such as composition and inheritance.
+              See features for more details.
+              </p>
+              <p class="lead">
+              modelx is used by
+              <strong><a href="https://lifelib.io">lifelib</a></strong>,
+              an open-source library of life actuarial models.
+              </p>
+              <p class="small">
+                modelx is in its active development stage, and its spacifications
+                are subject to changes.
+              </p>
         </div>
         <div class="col-md-6 text-center">
-            <img src="img/jekyll-dark.png" alt="" class="img-responsive">
+            <img src="img/input_tree.png" alt="" class="img-responsive">
         </div>
     </div>
+
+    <!--
+    <div class="row">
+        <div class="col-sm-3">
+            <h2 class="text-center"><a href="{{ site.posts.first.url | prepend: site.baseurl }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></h2>
+            <h3 class="text-center"><a href="{{ site.posts.first.url | prepend: site.baseurl }}">Blog</a></h3>
+        </div>
+        <div class="col-sm-3">
+            <h2 class="text-center"><a href="{{ "/docs" | prepend: site.baseurl }}"><i class="fa fa-book" aria-hidden="true"></i></a></h2>
+            <h3 class="text-center"><a href="{{ "/docs" | prepend: site.baseurl }}">Documents</a></h3>
+        </div>
+        <div class="col-sm-3">
+            <h2 class="text-center"><i class="fa fa-area-chart" aria-hidden="true"></i></h2>
+            <h3 class="text-center">Examples</h3>
+        </div>
+        <div class="col-sm-3">
+            <h2 class="text-center"><a href="https://lifelib.io"><i class="fa fa-code-fork" aria-hidden="true"></i></a></h2>
+            <h3 class="text-center"><a href="https://lifelib.io">lifelib</a></h3>
+        </div>
+    </div>
+    -->
+
     <hr>
     <div class="row">
+      <h2 class="text-center"><i class="fa fa-bolt" aria-hidden="true"></i></h2>
+      <h2 align="center">Features</h2>
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-pencil" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Easy to install and publish</h3>
-            <p>Get started by cloning source into GitHub account of your project. Thanks to <a href="https://pages.github.com">GitHub Pages</a>,
-              it will be automatically compiled and published under your account's (or organisation's) subdomain under <code>github.io</code>.
+            <h3 class="text-center">No programming</h3>
+            <p>modelx allows you to build models
+              just by writing formulas like you do on spreadsheets.
+              modelx automatically resolves calculation order from formula
+              dependency, so no need to write scripts to run your models.
             </p>
         </div>
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Modular Styling and Templating</h3>
-            <p>This template uses <a href="https://github.com/twbs/bootstrap-sass">bootstrap-sass</a> along with <a href="https://bootswatch.com/">Bootwatch themes</a>.
-            You can change the theme or write your custom one by overwriting bootstrap sass variables for a different color set, font options, etc.</p>
+            <h3 class="text-center">Readable formulas</h3>
+            <p>Define formulas by writing Python functions
+            and assign them to Cells. Formulas are evaluated when they are
+            called for the first time.
+            Lambda expression is also supported.</p>
         </div>
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-code-fork" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Git-based source control</h3>
-            <p>Leverage from Git version control system by
-              maintaining your documentation along with the source code; publish the page when you merge to the master branch.</p>
+            <h3 class="text-center">Object-oriented</h3>
+            <p>modelx is object-oriented, which means you create, access or
+              make changes to objects, such as models, spaces and cells.
+              modelx features composition and inheritance mechanisims
+              common in Object-oriented programming (OOP). </p>
         </div>
+
+
     </div>
+    <div class="row">
+
+      <div class="col-sm-4">
+          <h3 class="text-center">Parametrization</h3>
+          <p>You can apply the same set of calculations
+            to multiple data sets associatd with parameters.
+            This can be achieved by parametrizing spaces.</p>
+      </div>
+      <div class="col-sm-4">
+          <h3 class="text-center">Dependency tracking</h3>
+          <p>Dependency tracking is modelx's killer feature for checking and validating
+            models. You can check what other values
+            each calculated value is using, and also what other values
+            it is used by.
+          </p>
+      </div>
+      <div class="col-sm-4">
+          <h3 class="text-center">Excel interface</h3>
+          <p>Excel files are great for storing data of relatively small sizes.
+             You can create new spaces and pupulate new cells in the space
+             with data from Excel files. </p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h3 class="text-center">GUI as Spyder plugin</h3>
+            <p>Spyder is a popular open-source Python IDE.
+              Spyder plugin for modelx adds custom IPython consoles
+              and GUI widgets to use modelx with Spyder more intuitively.
+              </p>
+        </div>
+        <div class="col-sm-4">
+            <h3 class="text-center">Version control</h3>
+            <p>modelx models can be saved as text files written in Python syntax,
+              which means you can take full advantage of modern version
+              control systems, such as Git.
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <h3 class="text-center">Document integration</h3>
+            <p>Document model components, such as spaces and cells
+              by their docstrings within their definitions,
+              render the docstrings nicely by Sphinx, a documentation
+              generator, into html, pdf or other formats.
+              No need to maintain a separate model document.
+            </p>
+        </div>
+
+    </div>
+    <hr>
 </div>
