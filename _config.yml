@@ -5,8 +5,8 @@ description: >
   Python-spreadsheets hybrid
 lang: en-US
 
-baseurl: "/modelx-site" # the subpath of your site, e.g. /blog/
-url: "https://fumitoh.github.io" # the base hostname & protocol for your site
+# baseurl: "/modelx-site" # the subpath of your site, e.g. /blog/
+url: "https://modelx.io" # the base hostname & protocol for your site
 git_address: https://github.com/fumitoh/modelx
 # git_edit_address: https://github.com/aksakalli/jekyll-doc-theme/blob/gh-pages
 twitter_username: fumitoham
