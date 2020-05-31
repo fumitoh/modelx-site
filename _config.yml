@@ -16,6 +16,12 @@ github_username: fumitoh
 # comment out this to use default Bootstrap
 bootwatch: cosmo
 
+# Author
+author:
+  name: Fumito Hamamura
+  linkedin: https://www.linkedin.com/in/fumito-hamamura/
+
+
 # Build settings
 markdown: kramdown
 highlighter: rouge

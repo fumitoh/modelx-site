@@ -26,5 +26,7 @@
       </script>
     {% endif %}
 </body>
-
+    {% if page.mermaid == true %}
+    {% include mermaid.html %}
+    {% endif %}
 </html>

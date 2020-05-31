@@ -2,6 +2,7 @@
 layout: default
 ---
 
+{% assign feature_page = site.pages | where: "name", "features.md" | first %}
 
 <div class="container">
     <div class="row">
@@ -52,100 +53,28 @@ layout: default
 
     </div>
 
-    <!--
-    <div class="row">
-        <div class="col-sm-3">
-            <h2 class="text-center"><a href="{{ site.posts.first.url | prepend: site.baseurl }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></h2>
-            <h3 class="text-center"><a href="{{ site.posts.first.url | prepend: site.baseurl }}">Blog</a></h3>
-        </div>
-        <div class="col-sm-3">
-            <h2 class="text-center"><i class="fa fa-area-chart" aria-hidden="true"></i></h2>
-            <h3 class="text-center">Examples</h3>
-        </div>
-        <div class="col-sm-3">
-            <h2 class="text-center"><a href="{{ "/docs" | prepend: site.baseurl }}"><i class="fa fa-book" aria-hidden="true"></i></a></h2>
-            <h3 class="text-center"><a href="{{ "/docs" | prepend: site.baseurl }}">Documents</a></h3>
-        </div>
-    </div>
-    -->
-
     <hr>
-    <div class="row">
-      <h2 class="text-center"><i class="fa fa-bolt" aria-hidden="true"></i></h2>
-      <h2 align="center" id="features">Features</h2>
-        <div class="col-sm-4">
-            <h3 class="text-center">No programming</h3>
-            <p>modelx enables you to build models
-              just by writing formulas like you do on spreadsheets.
-              modelx automatically resolves calculation order from formula
-              dependency, so no need to write scripts to run your models.
-            </p>
-        </div>
-        <div class="col-sm-4">
-            <h3 class="text-center">Readable formulas</h3>
-            <p>Define formulas by writing Python functions
-            and assign them to Cells. Formulas are evaluated when they are
-            called for the first time.
-            Lambda expression is also supported.</p>
-        </div>
-        <div class="col-sm-4">
-            <h3 class="text-center">Object-oriented</h3>
-            <p>modelx is object-oriented, which means you create, access or
-              make changes to objects, such as models, spaces and cells.
-              modelx features composition and inheritance mechanisims
-              common in Object-oriented programming (OOP). </p>
-        </div>
+    <h2 class="text-center"><a href="{{site.baseurl}}{{feature_page.url}}"><i class="fa fa-bolt" aria-hidden="true"></i></a></h2>
+    <h2 align="center" id="features"><a href="{{site.baseurl}}{{feature_page.url}}">Features</a></h2>
 
-
-    </div>
+    {% for row_idx in (0..2) %}
     <div class="row">
 
-      <div class="col-sm-4">
-          <h3 class="text-center">Parametrization</h3>
-          <p>You can apply the same set of calculations
-            to multiple data sets associatd with parameters.
-            This can be achieved by parametrizing spaces.</p>
-      </div>
-      <div class="col-sm-4">
-          <h3 class="text-center">Dependency tracing</h3>
-          <p>Dependency tracing is an essential feature for checking and validating
-            models. You can check what other values
-            each calculated value is using, and also what other values
-            it is used by.
-          </p>
-      </div>
-      <div class="col-sm-4">
-          <h3 class="text-center">Excel interface</h3>
-          <p>Excel files are great for storing data of relatively small sizes.
-             You can create new spaces and pupulate new cells in the space
-             with data from Excel files. </p>
-      </div>
-    </div>
-    <div class="row">
+        {% for col_idx in (0..2) %}
+        {% assign idx = row_idx | times: 3 | plus: col_idx %}
+        {% if idx >= feature_page.features.size %}
+        {% break %}
+        {% endif %}
+        {% assign feature = feature_page.features[idx] %}
+        {% assign slug = feature.title | slugify %}
+        {% assign feature_url = site.baseurl | append: feature_page.url | append: "#" | append: slug %}
         <div class="col-sm-4">
-            <h3 class="text-center">GUI as Spyder plugin</h3>
-            <p>Spyder is a popular open-source Python IDE.
-              Spyder plugin for modelx adds custom IPython consoles
-              and GUI widgets to use modelx with Spyder more intuitively.
-              </p>
+            <h3 class="text-center"><a href="{{ feature_url }}">{{feature.title}}</a></h3>
+            <p>{{ feature.intro }} <a href="{{ feature_url }}">Read More>></a></p>
         </div>
-        <div class="col-sm-4">
-            <h3 class="text-center">Version control</h3>
-            <p>modelx models can be saved as text files written in Python syntax,
-              which means you can take full advantage of modern version
-              control systems, such as Git.
-            </p>
-        </div>
-        <div class="col-sm-4">
-            <h3 class="text-center">Document integration</h3>
-            <p>Document model components, such as spaces and cells
-              by their docstrings within their definitions,
-              render the docstrings nicely by Sphinx, a documentation
-              generator, into html, pdf or other formats.
-              No need to maintain a separate model document.
-            </p>
-        </div>
+        {% endfor %}
 
     </div>
+    {% endfor %}
     <hr>
 </div>

@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+          {% include features_nav.html %}
+          <!--
+          <div class="bs-component">
+          <div class="list-group">
+            {% for feat in page.features %}           
+            <div class="list-group-item">
+              <h4><a href="#{{ feat.title | slugify }}">{{ feat.title }}</a></h4>
+            </div>
+            {% endfor %}
+          </div>
+          </div>
+          -->
+        </div>
+        <div class="col-md-9">
+            <h1>{{ page.title }}</h1>
+            <div id="markdown-content-container">{{ content }}</div>
+        </div>
+
+    </div>
+</div>
