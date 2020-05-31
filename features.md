@@ -126,13 +126,20 @@ modelx is object-oriented. You create, access or make changes to objects,
 such as **Models**, **Spaces** and **Cells**. 
 modelx features [composition] and [inheritance] mechanisims common in Object-oriented programming (OOP).
 
-```mermaid
+<div class="row">
+  <div class="col-sm-6"  style="text-align:center;">
+<pre><code class="language-mermaid">
 graph TD
 A(Model1) --- B[Space1]
 B --- C[Cells1]
 B --- D[Space2]
 D --- E(Cells2)
-```
+</code></pre>
+  </div>
+<div class="col-sm-6">
+<img src="/img/features/ObjectTree.png" alt="Object tree">
+</div>
+</div>
 
 [composition]: https://en.wikipedia.org/wiki/Object_composition
 [inheritance]: https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)
@@ -168,7 +175,7 @@ Formula calculations without changing their signatures.
 65.05143508027656    
 ```
 
-Insert picture 
+![Parameterization](img/features/Parameterization.png)
 
 
 ## {{ page.features[4].title }}
@@ -185,8 +192,15 @@ and also what other values it is used by.
 [Model1.Space1.Balance(t=5)=500]
 ```
 
-Insert picture
 
+<div class="row">
+  <div class="col-sm-6">
+    <img src="/img/features/DependencyTracingPrecedents.png" alt="Trace precedents">
+  </div>
+  <div class="col-sm-6">
+    <img src="/img/features/DependencyTracingDependents.png" alt="Trace dependents">
+  </div>
+</div>
 
 ## {{ page.features[5].title }}
 
