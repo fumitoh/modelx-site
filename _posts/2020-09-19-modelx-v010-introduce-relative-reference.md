@@ -19,7 +19,7 @@ def _formula(PolicyID, ScenID=1):
     return {'refs': refs}
 ```
 
-The formula has always been that convoluted since the first release of lifelib and I wanted to make it simpler and easier to understand. I had thought about how to enhance modelx so that the formula above could be stripped down to a simpler expression. After a long while I finally came up with the idea of relative reference and implemented in modelx v0.10.0, which was released a couple days ago. The concept of relative and absolute reference is somewhat to similar to that of spreadsheets.
+The formula has always been that convoluted since the first release of lifelib and I wanted to make it simpler and easier to understand. I had thought about how to enhance modelx so that the formula above could be stripped down to a simpler expression. After a long while I finally came up with the idea of relative reference and implemented in modelx v0.10.0, which was released a couple days ago. The concept of relative and absolute reference is somewhat similar to that of spreadsheets.
 
 With the introduction of relative reference, the formula can be as simple as below.
 
@@ -32,11 +32,11 @@ lambda PolicyID, ScenID=1: None
 
 Let’s say you want to build a simple cashflow projection model of life insurance policies, one that's similar to but much simpler than simplelife.
 
-You would create a Space to put Cells for projection calculations. Let’s name the Space `Projection` here.  You could put all the Cells needed for projection in `Projection`, but to avoid filling the Space with too many Cells,  you would decide to create 2 child spaces `Policy` and `Assumptions`, and put Cells representing policy attributes in `Policy`, and put Cells representing assumptions in `Assumptions`.
+You would create a Space to put Cells for projection calculations in it. Let’s name the Space `Projection` here.  You could put all the Cells needed for projection in `Projection`, but to avoid filling the Space with too many Cells,  you would decide to create 2 child spaces `Policy` and `Assumptions`, and put Cells representing policy attributes in `Policy`, and put Cells representing assumptions in `Assumptions`.
 
 ![Spaces](/img/2020-09-19/spacetree.png)
 
-For example, Projection would contain `PolsDeath`, Number of Death, which need to refer to `BaseMortRate` in its formula. `BaseMortRate` is in `Assumptions`, and in turn it needs to refer to `Product` in `Policy`.
+For example, Projection would contain `PolsDeath`, Number of Death, which need to refer to `BaseMortRate` in its formula. `BaseMortRate` is in `Assumptions`, and in turn it needs to refer to `Product`, Product ID of the selected policy, which is in `Policy`.
 
 `PolsDeath` could refer to `BaseMortRate` in its formula as `Assumptions.BaseMortRate`, but it’s too verbose, so you decide to define an alias for `Assumptions` as a Reference, and name it `asmp`, then you get to refer to `BaseMortRate` in `PolsDeath`’s formula as `asmp.BaseMortRate`.
 
@@ -56,15 +56,15 @@ lambda PolicyID: None
 ```
 
 But this does not work with modelx v0.9.0 or older, because
-in `Projection[1]`, derived References, such as `asmp` and `prod` reference the same objects as what `asmp` and `prod` reference, which are in the base Space, `Projection`.
+in `Projection[1]`, derived References, such as `asmp` and `prod` reference the same objects as what `asmp` and `prod` in `Projection` reference, which are in the base Space, `Projection`.
 
 ![Absolute reference](/img/2020-09-19/absref.png)
 
 With modelx v0.10.0, this behavior is changed.
 
-When References are set by the assignment operation, the References are set in auto mode. In this example, `asmp` and `prod` are auto References. When `Projection[1]` explicitly inherits from `Projection`, `asmp` and `prod` in `Projection[1]` are derived from `asmp` and `prod` in `Projection`. Since `Projeciton.asmp` and `Projection.prod` are auto References, their derived References, `Projection[1].asmp` and `Projection[1].prod` are bound to objects in `Projections[1]`, whose relative names in `Projection[1]` are consistent with the relative names of the values of the base References in `Projection`.
+When References are set by the assignment operation, the References are set in *auto* mode. In this example, `asmp` and `prod` are auto References. When `Projection[1]` explicitly inherits from `Projection`, `asmp` and `prod` in `Projection[1]` are derived from `asmp` and `prod` in `Projection`. Since `Projeciton.asmp` and `Projection.prod` are auto References, their derived References, `Projection[1].asmp` and `Projection[1].prod` are bound to objects in `Projections[1]`, whose relative names in `Projection[1]` are consistent with the relative names of the values of the base References in `Projection`.
 
-If `Projeciton.asmp` or `Projction.prod` were bound to Spaces or Cells outside `Projection`, then `Projection[1].asmp` and `Projection[1].prod` would reference the same Spaces or Cells as the values of the base References. If `asmp` and `prod` were set in relative mode, then creating `Projection[1]` would raise an Error, because relative reference would be impossible.
+If `Projeciton.asmp` or `Projction.prod` were bound to Spaces or Cells outside `Projection`, then `Projection[1].asmp` and `Projection[1].prod` would reference the same Spaces or Cells as the values of the base References. If `asmp` and `prod` were set in *relative* mode, then creating `Projection[1]` would raise an Error, because relative reference would be impossible.
 
 ![Relative reference](/img/2020-09-19/relref.png)
 
