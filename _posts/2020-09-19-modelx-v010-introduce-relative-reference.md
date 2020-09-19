@@ -19,7 +19,7 @@ def _formula(PolicyID, ScenID=1):
     return {'refs': refs}
 ```
 
-The formula has always been that convoluted since the first release of lifelib and I wanted to make it simpler and easier to understand. I had thought about how to enhance modelx so that such parts like the above formula could be stripped down to a simpler expression. For a long while I couldn’t figure out the best way to achieve that, but finally I came up with the idea of relative reference and implemented in modelx v0.10.0, which was released a couple days ago. The concept of relative and absolute reference is somewhat to similar to that of spreadsheets.
+The formula has always been that convoluted since the first release of lifelib and I wanted to make it simpler and easier to understand. I had thought about how to enhance modelx so that the formula above could be stripped down to a simpler expression. After a long while I finally came up with the idea of relative reference and implemented in modelx v0.10.0, which was released a couple days ago. The concept of relative and absolute reference is somewhat to similar to that of spreadsheets.
 
 With the introduction of relative reference, the formula can be as simple as below.
 
