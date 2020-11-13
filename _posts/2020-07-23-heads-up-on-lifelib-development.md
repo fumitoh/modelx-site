@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "Heads-up on lifelib development"
 author: "Fumito Hamamura"
 categories: lifelib

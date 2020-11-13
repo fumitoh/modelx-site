@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "modelx v0.10.0 will make lifelib simpler"
 author: "Fumito Hamamura"
 categories: modelx

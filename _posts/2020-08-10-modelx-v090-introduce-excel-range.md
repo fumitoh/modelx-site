@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "modelx 0.9.0 introduces a new interface to Excel"
 author: "Fumito Hamamura"
 categories: modelx
