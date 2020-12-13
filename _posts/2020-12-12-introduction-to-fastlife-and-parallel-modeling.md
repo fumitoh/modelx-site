@@ -91,7 +91,7 @@ Now let's see how fast a fastlife model is. The code below is for comparing exec
 20.70127050000002
 ```
 
-I had hoped that the fastlife model would gain extreme performance improvement as I wrote in [here]({% post_url 2020-07-23-heads-up-on-lifelib-development %}), but the improvement is only about 30%. But, it's too early to despair. It's quite likely that the model's performance improves drastically by making some changes for optimization.  In the next section, I'm going to discuss how I inspected the fastlife model to identify performance bottlenecks.
+I had hoped that the fastlife model would gain extreme performance improvement as I wrote [here]({% post_url 2020-07-23-heads-up-on-lifelib-development %}), but the improvement is only about 30%. But, it's too early to despair. It's quite likely that the model's performance improves drastically by making some changes for optimization.  In the next section, I'm going to discuss how I inspected the fastlife model to identify performance bottlenecks.
 
 
 ## Inspection and analysis
