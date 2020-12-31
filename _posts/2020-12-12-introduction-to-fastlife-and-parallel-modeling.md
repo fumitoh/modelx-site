@@ -181,7 +181,7 @@ I also looked at how the fastlife model is utilizing CPU cores. As you can see i
 
 ![Spaces](/img/2020-12-12/fastlife-CPU-usage.png)
 
-Unfortunately, Python cannot benefit from multi-threading due to its mechanism called GIL. I looked around for a solution and found [**modin**](https://modin.readthedocs.io/en/latest/). In short, modin's goal is to behave exactly like pandas but with multi-threading and/or multi-processing enabled.
+Unfortunately, Python cannot benefit from multi-threading due to its mechanism called [**GIL**](https://wiki.python.org/moin/GlobalInterpreterLock). I looked around for a solution and found [**modin**](https://modin.readthedocs.io/en/latest/). In short, modin's goal is to behave exactly like pandas but with multi-threading and/or multi-processing enabled.
 I quickly tested modin, but I couldn't get it work with modelx. I believe I can make modelx work with modin, but need further study.
 
 ## Other findings
