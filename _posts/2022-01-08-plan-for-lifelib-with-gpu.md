@@ -2,17 +2,18 @@
 layout: post
 comments: true
 title: "Plan for lifelib with GPU"
-author: "Fumito Hamamura"
 categories: lifelib
 ---
 
 ![GPU image](/img/2022-01-08/nvidia-g24c404370_1280.jpg)
 
-[lifelib]'s goal is to be a practical tool for actuarial practitioners.
+[lifelib] is an open source Python library of actuarial models.
+It's goal is to be a practical tool for actuarial practitioners.
 The [basiclife] and [savings] libraries introduced to lifelib in 2021 were designed to be practical enough so that they can be leveraged for real actuarial tasks.
 Especially, the parallel models in the libraries, such as [BasicTerm_M], [BasicTerm_ME] and [CashValue_ME], run significantly fast, thanks to [NumPy] and [pandas], even though they don't fully utilize all the CPU cores on a machine.
-Speed is not everything, but it's one of the most important factors for actuarial models to be practical and efficient.
-That's why it's going to be extremely exciting to make lifelib models run on GPU.
+In this post, a plan to make lifelib models run on GPU is presented.
+Speed is one of the most important factors for actuarial models to be practical and efficient.
+That's why it's going to be extremely exciting to try to run actuarial models run on GPU.
 
 [lifelib]:https://lifelib.io/
 [basiclife]:https://lifelib.io/libraries/basiclife/index.html
