@@ -76,6 +76,8 @@ Basically changes are made for either of the two reasons below:
   so formulas containing such methods or parameters needed modifications.
   
 The complete comparison of the formulas is available [here](https://www.diffchecker.com/LzyRRKxa).
+The models, both the CPU and GPU models used for the test are archived in [this file]({{site.url}}/download/2022-01-15/BasicTerm_ME_TestOnGPU.zip)
+(modelx v0.18.0 or newer is required to run the models).
 It is possible to make the same model run both on CPU and GPU,
 but to achieve that, modelx needs further enhancement. 
 
