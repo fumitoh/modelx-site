@@ -34,7 +34,7 @@ The `max_proj_len` formula was defined as below:
 lambda: int(max(proj_len()))
 ```
 
-`proj_len()` returns a cupy array, each element of which holds the length of the projection steps of each model point. It seems that the `max` standard function operates on the cupy array
+`proj_len()` returns a [CuPy] array, each element of which holds the length of the projection steps of each model point. It seems that the `max` standard function operates on the [CuPy] array
 inefficiently.
 Based on the analysis, the formula of `max_proj_len` was changed as below:
 
@@ -46,6 +46,8 @@ def max_proj_len():
 After the change `max_proj_len` took almost no time and the total run time was
 reduced from 10 to 6 seconds.
 
+
+[CuPy]: https://cupy.dev/
 
 ## Cloud GPU shortage
 
