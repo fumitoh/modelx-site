@@ -5,7 +5,7 @@ title: "Running modelx in parallel using ipyparallel"
 categories: lifelib
 ---
 
-In the post, ["How fast are lifelib models now?"]({% post_url 2021-01-31-fastlife-got-faster %}),
+In the post, ["How fast are lifelib models now?"]({% post_url 2022-02-26-how-fast-are-lifelib-models-now %}),
 we've seen that lifelib models run pretty fast.
 But each of these tests was run by a single process.
 In fact, the CPU utilization during any of the test runs was only about 8%.
