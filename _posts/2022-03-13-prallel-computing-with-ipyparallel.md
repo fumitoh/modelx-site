@@ -95,4 +95,6 @@ Here findings from the test.
 * Python 3.10 is 25%-45% faster than Python 3.9
 * Garbage collection needed be turned off to get the results above. When garbage collection was turned on, the run speed deteriorated significantly.
 
+Note: [Garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) is a mechanism to clean up data that is not referenced by any variable anymore by freeing the memory for the data.
+
 
