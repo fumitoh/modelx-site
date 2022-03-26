@@ -58,7 +58,7 @@ are not remembered at the end of the loop.
 
 Now, let's see how you would do it in Excel:
 
-![Excel](/img/2022-03-26/pv-in-excel.png)
+![Excel](/img/2022-02-26/pv-in-excel.png)
 
 As you see on the left, Excel uses recursion instead of loop, to repeat the same formula, 
 so `pv` for all the `i` are available. On the right are a different way of taking the present value.
