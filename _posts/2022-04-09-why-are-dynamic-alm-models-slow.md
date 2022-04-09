@@ -57,8 +57,8 @@ In case of a *static* model,
 you can model cashflows of insurance policies separately from the asset cashflows.
 The figure below illustrates the calculation order of a static model.
 As indicated by the highlighted surfaces from the top,
-first the variables of Policy 1 are calculated for all the time periods,
-and the the variables of Policy 2 are calculated for all the time periods,
+first the variables of Policy 1 are calculated for all time periods,
+and the variables of Policy 2 are calculated for all time periods,
 and so on. 
 
 ![Image3](/img/2022-04-09/static-projection-direction.png)
