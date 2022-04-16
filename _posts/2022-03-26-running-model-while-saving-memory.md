@@ -16,6 +16,8 @@ This post discusses how the feature works and shows the result of its initial pe
 The interface design of the feature has not finalized yet,
 and will be updated by its official introduction.  
 
+**_Update on 16 April 2022:_** modelx v0.19.0 added this feature. This post is updated to reflect actual method names, `generate_actions` and `execute_actions`.
+
 ## The issue with memory consumption
 
 Let's take lifelib's `CashValue_ME` model for example.
@@ -133,10 +135,10 @@ The first run should be carried out with a reduced set of model points.
 The current design of the mechanism 
 introduces two new methods of the `Model` class. (They may be renamed by their official introduction)
 
-* `generate_calcsteps`
-* `calc_stepwise`
+* `generate_actions`
+* `execute_actions`
 
-The `generate_calcsteps` method is for generating the action list.
+The `generate_actions` method is for generating the action list.
 Each element in the lis is a list, whose first element is either
 `"calc"`, `"paste"` or `"clear"`, and whose second element is a list
 of nodes that the action denoted by the first element applies to.
@@ -157,7 +159,7 @@ In the case of the example above, the action list looks like below:
  ['clear', [Model1.Space1.Cells1(), Model1.Space1.Cells2(x=2)]]]
  ```
 
-The `calc_stepwise` method takes this list as an argument, and
+The `execute_actions` method takes this list as an argument, and
 carry out the second run following the action list.
 
 
@@ -179,7 +181,7 @@ poind_id                            ...
 
 [4 rows x 10 columns]
 
->>> actions = model.generate_calcsteps([model.Projection.result_pv.node()])
+>>> actions = model.generate_actions([model.Projection.result_pv.node()])
 UserWarning: call stack trace activated
 UserWarning: call stack trace deactivated
 ```
@@ -208,7 +210,7 @@ policy_id                            ...
 
 >>> model.Projection.model_point_table = df
 
->>> model.calc_stepwise(actions)
+>>> model.execute_actions(actions)
 
 >>> model.Projection.result_pv()
                Premiums         Death  ...  Change in AV  Net Cashflow
