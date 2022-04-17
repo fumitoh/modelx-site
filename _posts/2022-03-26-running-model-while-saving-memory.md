@@ -16,7 +16,7 @@ This post discusses how the feature works and shows the result of its initial pe
 The interface design of the feature has not finalized yet,
 and will be updated by its official introduction.  
 
-**_Update on 16 April 2022:_** modelx v0.19.0 added this feature. This post is updated to reflect actual method names, `generate_actions` and `execute_actions`.
+**_Update on 16 April 2022:_** modelx v0.19.0 introduced this feature. This post is updated to reflect the actual method names, `generate_actions` and `execute_actions`.
 
 ## The issue with memory consumption
 
