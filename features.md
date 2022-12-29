@@ -22,14 +22,14 @@ features:
       intro: >
         modelx is object-oriented, which means you create, access or
         make changes to objects, such as models, spaces and cells.
-        modelx features composition and inheritance mechanisims
+        modelx features composition and inheritance mechanisms
         common in Object-oriented programming (OOP). 
 
     - title: Parameterization
       intro: >
         You can apply the same set of calculations
-        to multiple data sets associatd with parameters.
-        This can be achieved by parametrizing spaces.
+        to multiple data sets associated with parameters.
+        This can be achieved by parameterizing spaces.
 
     - title: Dependency tracing
       intro: >
@@ -41,7 +41,7 @@ features:
     - title: Excel Interface
       intro: >
         Excel files are great for storing data of relatively small sizes.
-        You can create new spaces and pupulate new cells in the space
+        You can create new spaces and populate new cells in the space
         with data from Excel files. 
 
     - title: GUI as Spyder plugin
@@ -124,7 +124,7 @@ to define simple Formulas.
 
 modelx is object-oriented. You create, access or make changes to objects, 
 such as **Models**, **Spaces** and **Cells**. 
-modelx features [composition] and [inheritance] mechanisims common in Object-oriented programming (OOP).
+modelx features [composition] and [inheritance] mechanisms common in Object-oriented programming (OOP).
 
 <div class="row">
   <div class="col-sm-6"  style="text-align:center;">
@@ -205,7 +205,7 @@ and also what other values it is used by.
 ## {{ page.features[5].title }}
 
 Excel files are great for storing data of relatively small sizes. 
-You can create new spaces and pupulate new cells in the space with data from Excel files.
+You can create new spaces and populate new cells in the space with data from Excel files.
 
 
 
