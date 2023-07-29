@@ -32,7 +32,7 @@ The export feature aims to address these modelx limitations. It allows you to tr
 The export feature automatically detects the names of methods and member variables in the method definitions, prefixing them with `self.`.
 Furthermore, the package includes files storing data and metadata utilized in the model.
 
-Upon importing the module, an instance of the model class is created. This instance can be accessed as `mx_model`, or under the name of the original model within the package's namespace. Though the exported model lacks certain features that the original modelx model possesses for live editing and inspection, it still produces results consistent with the original modelx model.
+Upon importing the package, an instance of the model class is created. This instance can be accessed as `mx_model`, or under the name of the original model within the package's namespace. Though the exported model lacks certain features that the original modelx model possesses for live editing and inspection, it still produces results consistent with the original modelx model.
 
 
 
