@@ -27,7 +27,7 @@ What is it about Excel that instills such comfort in its users compared to Pytho
 
 ## Python Runs, Excel Persists
 
-A Python runs. It executes a script from the start of the file through to the end. Before the script is executed, it's simply a text file. While running, it exists for a short period, and once it finishes, it reverts back to being just a text file.
+A Python program runs. Python executes a script from the start of the file through to the end. Before the program is executed, it's simply a text file. While running, it exists for a short period, and once it finishes, it reverts back to being just a text file.
 
 In contrast, Excel doesn't "run" in the traditional sense. It doesn't have a "Run" button, and it persists. It's static and holds the results of your formulas at all times.
 
