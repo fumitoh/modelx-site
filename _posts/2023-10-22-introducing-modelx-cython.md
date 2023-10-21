@@ -135,23 +135,24 @@ result['time'] = timeit.timeit(
 print(result)
 ```
 
-The summarized performance results on both Windows and Linux are:
+The summarized performance results on both Windows and Linux (Windows Subsystem for Linux) are:
 
 **Run Time (sec.)**
-
-| Model | Windows | Linux |
-| ------ | -------- | ------ |
-| Pure-Python | 1831 | 1736 |
-| Cythonized | 440 | 443 |
-| Ratio | 4.2 | 3.9 |
-
-**Memory Usage (MB)**
 
 | Model | Windows | Linux |
 | ------ | -------- | ------ |
 | Pure-Python | 17.7 | 14.1 |
 | Cythonized | 7.8 | 6.4 |
 | Ratio | 2.3 | 2.2 |
+
+
+**Memory Usage (MB)**
+
+| Model | Windows | Linux |
+| ------ | -------- | ------ |
+| Pure-Python | 1831 | 1736 |
+| Cythonized | 440 | 443 |
+| Ratio | 4.2 | 3.9 |
 
 On both platforms, the compiled models run at double the speed of their pure-Python counterparts and consume only one-fourth of the memory compared to the pure-Python models.
 
