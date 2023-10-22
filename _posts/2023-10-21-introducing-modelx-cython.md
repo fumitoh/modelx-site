@@ -21,7 +21,7 @@ While Cython can translate nearly all Python code to C, a direct translation doe
 
 Cython extends the Python language with its own set of syntax, which allows users to optimize Python code by defining static types for variables and functions, as depicted in the following illustration:
 
-![Image1](/img/2023-10-22/cython-to-nativecode.png)
+![Image1](/img/2023-10-21/cython-to-nativecode.png)
 
 However, a newer Cython feature lets users adjust the original Python code using pure Python syntax, leveraging decorators and Python’s type annotation feature. This enables Cython to generate C code where objects, especially numeric ones, are represented as C types, ensuring performance levels close to those written originally in compiled languages.
 
@@ -31,7 +31,7 @@ modelx-cython, our new experimental package, creates native-code models from exp
 
 In the visualization below, modelx-cython handles the latter half of the conversion, while modelx's export functionality manages the former half:
 
-![Image2](/img/2023-10-22/modelx-ecosystem.png)
+![Image2](/img/2023-10-21/modelx-ecosystem.png)
 
 modelx-cython converts a pure-Python model exported by modelx into native code. This process comprises two primary steps:
 
