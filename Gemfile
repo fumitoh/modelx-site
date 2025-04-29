@@ -26,6 +26,6 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 gem "webrick", "~> 1.8.2"
 
 gem "commonmarker", ">= 0.23.7"
-gem "nokogiri", ">= 1.14.3"
+gem "nokogiri", ">= 1.18.3"
 gem "activesupport", "~> 7.0.7.1"
 gem "rexml", "~> 3.3.9"
