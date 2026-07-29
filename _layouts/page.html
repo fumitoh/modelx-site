@@ -2,14 +2,16 @@
 layout: default
 ---
 
-<div class="post">
+<div class="container">
+    <div class="inner-content">
 
-    <header class="post-header">
-        <h1 class="post-title">{{ page.title }}</h1>
-    </header>
+        <header class="post-header">
+            <h1 class="post-title">{{ page.title }}</h1>
+        </header>
 
-    <article class="post-content">
-        {{ content }}
-    </article>
+        <article class="post-content" id="markdown-content-container">
+            {{ content }}
+        </article>
 
+    </div>
 </div>
