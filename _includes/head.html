@@ -11,7 +11,9 @@
     p { font-size: 16px}
 
     </style>
-    {% seo %}
+    <title>{% if page.url == "/" %}{{ page.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    {% seo title=false %}
+    <!-- TODO(fumito): provide a social card image for og:image -->
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />

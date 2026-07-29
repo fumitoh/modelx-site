@@ -2,7 +2,10 @@
 title: modelx
 email: fumito.ham@gmail.com
 description: >
-  Use Python like a spreadsheet!
+  Build actuarial models as code. modelx is an open-source Python modeling
+  system with formula dependency tracing, Git-friendly plain-text models,
+  export to standalone pure-Python packages, and native compilation via
+  modelx-cython.
 lang: en-US
 
 # baseurl: "/modelx-site" # the subpath of your site, e.g. /blog/
