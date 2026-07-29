@@ -10,10 +10,14 @@
     </div>
     <div id="collapse-{{forloop.index}}" class="panel-collapse" role="tabpanel" aria-label="Side Navigation">
       <div class="list-group">
-        {% for item in page.features %}
-          {% assign slug = item.title | slugify %}
-          {% assign item_url = site.baseurl | append: page.url | append: "#" | append: slug %}
-          <a class="list-group-item" href="{{ item_url }}">{{ item.title }}</a>
+        {% for group in page.feature_groups %}
+          <span class="list-group-item disabled"><strong>{{ group.title }}</strong></span>
+          {% for item in group.features %}
+            {% assign auto_slug = item.title | slugify %}
+            {% assign slug = item.slug | default: auto_slug %}
+            {% assign item_url = site.baseurl | append: page.url | append: "#" | append: slug %}
+            <a class="list-group-item" href="{{ item_url }}">{{ item.title }}</a>
+          {% endfor %}
         {% endfor %}
       </div>
     </div>
