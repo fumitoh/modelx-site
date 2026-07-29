@@ -51,7 +51,7 @@ title: "modelx — Open-Source Actuarial Modeling System in Python"
 
     <!-- TODO(fumito): screenshot or GIF of MxExplorer / dependency graph -->
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3 class="header-light">Build a model with formulas</h3>
 {% highlight python %}
 import modelx as mx
@@ -82,7 +82,10 @@ def net_cf(t):
     return premiums(t) - claims(t)
 {% endhighlight %}
         </div>
-        <div class="col-md-6">
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
             <h3 class="header-light">Run it, trace it, ship it</h3>
 {% highlight pycon %}
 >>> net_cf(10)      # calculation order resolved automatically
