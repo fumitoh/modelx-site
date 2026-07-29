@@ -7,7 +7,7 @@ title: "modelx — Open-Source Actuarial Modeling System in Python"
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h1 class="header-light regular-pad">Actuarial Models as Code</h1>
               <p class="lead">modelx is the open-source actuarial modeling
               system for Python. Build transparent, auditable models with
@@ -36,17 +36,66 @@ title: "modelx — Open-Source Actuarial Modeling System in Python"
                 <a href="https://github.com/fumitoh/modelx/blob/main/LICENSE.txt"><img src="https://img.shields.io/github/license/fumitoh/modelx" alt="License: LGPL-3.0"></a>
               </p>
         </div>
-        <div class="col-md-6 text-center">
-          <!-- <a href="img/MxPluginImage.png">
-            <img src="img/MxPluginImage.png" alt="" class="img-responsive">
-          </a> -->
-          <h2 class="header-light regular-pad">&nbsp;</h2>
-          <div class="video-container">
-            <!-- Reference site: https://stackoverflow.com/questions/35814653/automatic-height-when-embedding-a-youtube-video -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/rHPuXmZd0TY"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
+    </div>
+
+    <!-- TODO(fumito): screenshot or GIF of MxExplorer / dependency graph -->
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="header-light">Build a model with formulas</h3>
+{% highlight python %}
+import modelx as mx
+
+model = mx.new_model(name="TermLife")
+proj = mx.new_space(name="Projection")
+
+proj.premium_pp = 120      # annual premium per policy
+proj.sum_assured = 50_000
+proj.q = 0.002             # mortality rate
+proj.lapse = 0.05          # lapse rate
+
+@mx.defcells
+def pols_if(t):
+    """Policies in force at t"""
+    return 1.0 if t == 0 else pols_if(t - 1) * (1 - q - lapse)
+
+@mx.defcells
+def premiums(t):
+    return premium_pp * pols_if(t)
+
+@mx.defcells
+def claims(t):
+    return sum_assured * q * pols_if(t)
+
+@mx.defcells
+def net_cf(t):
+    return premiums(t) - claims(t)
+{% endhighlight %}
+        </div>
+        <div class="col-md-6">
+            <h3 class="header-light">Run it, trace it, ship it</h3>
+{% highlight pycon %}
+>>> net_cf(10)      # calculation order resolved automatically
+11.725013975627874
+
+>>> net_cf.preds(10)   # trace what this value depends on
+[TermLife.Projection.premiums(t=10)=70.3500838537673,
+ TermLife.Projection.claims(t=10)=58.62506987813943]
+
+>>> mx.write_model(model, "TermLife")  # plain text: diff it, Git it
+
+>>> model.export("TermLife_ex")   # self-contained pure-Python package
+
+>>> from TermLife_ex import mx_model    # runs without modelx
+>>> mx_model.Projection.net_cf(10)
+11.725013975627874
+{% endhighlight %}
+            <ul class="small">
+                <li>Automatic dependency resolution &mdash; no run scripts to write.</li>
+                <li>Full tracing for validation &mdash; every value knows its precedents and dependents.</li>
+                <li>Models saved as plain text &mdash; ready for Git and AI agents.</li>
+                <li>Exports as a pure-Python package with no modelx dependency.</li>
+                <li>Exported models compile to native code with <a href="https://github.com/fumitoh/modelx-cython">modelx-cython</a>.</li>
+            </ul>
         </div>
     </div>
 
@@ -114,5 +163,17 @@ conda install -c conda-forge modelx
 
     </div>
     {% endfor %}
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <div class="video-container">
+            <!-- Reference site: https://stackoverflow.com/questions/35814653/automatic-height-when-embedding-a-youtube-video -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/rHPuXmZd0TY"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+    </div>
     <hr>
 </div>
