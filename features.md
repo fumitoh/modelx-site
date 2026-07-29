@@ -101,6 +101,10 @@ and also what other values it is used by.
 [Model1.Space1.Balance(t=5)=500]
 ```
 
+Dependency tracing is one of the reasons to choose models-as-code
+over spreadsheets and proprietary platforms&mdash;see
+[Why modelx](why.html).
+
 
 <div class="row">
   <div class="col-sm-6">
@@ -117,7 +121,8 @@ modelx models are saved as text files written in the Python syntax,
 which means you can take full 
 advantage of modern version control systems and collaborative
 software development platforms, such as [Git] and [GitHub].
-Plain-text models are also readable by AI coding agents.
+Plain-text models are also readable by AI coding agents&mdash;see
+[modelx and AI agents](ai.html).
 
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/
