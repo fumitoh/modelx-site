@@ -62,5 +62,5 @@ pip install modelx
 conda install -c conda-forge modelx
 ```
 
-Read [Why modelx](why.html) for the full case, or start with the
+Read [Why modelx](features.html) for the full case, or start with the
 [tutorial](https://docs.modelx.io/en/latest/tutorial/index.html).
