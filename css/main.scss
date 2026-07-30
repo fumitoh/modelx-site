@@ -434,6 +434,61 @@ pre:has(> code.language-mermaid) {
 }
 
 // ===========================================================================
+// Homepage rhythm
+// ===========================================================================
+
+// Each showcase row reads as its own slide: generous, consistent vertical
+// space, with alternating rows on the lightest blue tint as soft panels.
+.home-section {
+  margin-top: $mx-space-6;
+  margin-bottom: $mx-space-6;
+  padding: $mx-space-4 0;
+
+  > [class*="col-"] > h3:first-child {
+    margin-top: 0;
+    font-size: 28px;
+  }
+}
+
+.home-section--alt {
+  background-color: $mx-blue-050;
+  border: 1px solid $mx-blue-100;
+  border-radius: $mx-radius-lg;
+  padding: $mx-space-4 $mx-space-2;
+}
+
+// Quick-links strip: compact labels under the icon row.
+.home-links {
+  margin-top: $mx-space-6;
+  margin-bottom: $mx-space-3;
+
+  h2 {
+    margin: $mx-space-1 0 0;
+  }
+
+  h3 {
+    font-size: 17px;
+    margin: 6px 0 $mx-space-3;
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
+      color: $mx-blue-600;
+    }
+  }
+}
+
+// The Highlights interstitial between the links strip and the showcase rows.
+#features {
+  margin-bottom: $mx-space-2;
+
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+}
+
+// ===========================================================================
 // Cards and panels
 // ===========================================================================
 
