@@ -125,7 +125,60 @@ html {
 body {
   padding-top: $navbar-height + $navbar-margin-bottom;
   margin-bottom: 46px;
-  line-height: 1.5;
+}
+
+// ===========================================================================
+// Typography
+// ===========================================================================
+
+h1, h2, h3 {
+  letter-spacing: -0.015em;
+}
+
+// Historic helper class from the theme; headings are no longer thin, so it
+// simply follows the heading weight now.
+.header-light {
+  font-weight: $headings-font-weight;
+}
+
+.lead {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+small,
+.small {
+  color: $mx-text-muted;
+}
+
+// Long-form prose (features, ai, blog posts, other markdown pages): cap the
+// measure so lines stay readable at desktop widths. Code panels, images and
+// grid rows keep the full column width.
+#markdown-content-container,
+.post-content {
+  p, ul, ol, blockquote, dl {
+    max-width: 70ch;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  h2 {
+    margin-top: $mx-space-6;
+    margin-bottom: $mx-space-2;
+  }
+
+  h3 {
+    margin-top: $mx-space-4;
+    margin-bottom: $mx-space-2;
+  }
+}
+
+blockquote {
+  color: $mx-text-muted;
+  font-size: $font-size-base;
 }
 
 .navbar-brand{
