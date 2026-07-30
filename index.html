@@ -162,6 +162,8 @@ conda install -c conda-forge modelx
     {% for group in feature_page.feature_groups %}
     {% if group.prominent %}
     {% assign col_class = "col-sm-6" %}{% assign per_row = 2 %}
+    {% elsif group.features.size == 1 %}
+    {% assign col_class = "col-sm-8 col-sm-offset-2" %}{% assign per_row = 1 %}
     {% else %}
     {% assign col_class = "col-sm-4" %}{% assign per_row = 3 %}
     {% endif %}
