@@ -107,7 +107,7 @@ Build in modelx; ship plain Python; compile it native when you need speed.
 No step requires a proprietary runtime.
 
 <pre><code class="language-mermaid">
-graph TD
+graph LR
 A(Build in modelx) -- "model.export()" --> B(Pure-Python package<br>runs without modelx)
 B -- mx2cy --> C(Native-compiled model)
 </code></pre>
