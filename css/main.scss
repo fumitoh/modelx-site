@@ -3,6 +3,102 @@
 ---
 @charset "utf-8";
 
+// ===========================================================================
+// modelx design tokens
+//
+// Single-accent palette: every color below derives from the Cosmo brand blue
+// #2780E3 (hue 212). Tints/shades are generated with Sass color functions so
+// the relationships stay explicit — do not hand-pick new hex accents.
+// ===========================================================================
+
+// --- Accent (blue) scale ---------------------------------------------------
+$mx-blue:          #2780E3;                    // base accent = $brand-primary
+$mx-blue-050:      mix(#fff, $mx-blue, 96%);   // lightest tint: section/panel bg
+$mx-blue-100:      mix(#fff, $mx-blue, 88%);   // hover fills, badges
+$mx-blue-200:      mix(#fff, $mx-blue, 72%);   // borders on tinted surfaces
+$mx-blue-600:      darken($mx-blue, 12%);      // link/button hover
+$mx-blue-700:      darken($mx-blue, 20%);      // pressed states, accent text
+
+// --- Ink (blue-gray neutral) scale -----------------------------------------
+// Neutrals share the accent hue so grays never look mismatched next to blue.
+$mx-ink-900:       hsl(hue($mx-blue), 32%, 16%);  // code panels, footer
+$mx-ink-800:       hsl(hue($mx-blue), 28%, 22%);  // hover surface on dark
+$mx-text:          hsl(hue($mx-blue), 20%, 18%);  // body text
+$mx-text-muted:    hsl(hue($mx-blue), 12%, 40%);  // secondary text (AA on white & tint)
+$mx-border:        hsl(hue($mx-blue), 25%, 90%);  // hairline borders
+$mx-border-strong: hsl(hue($mx-blue), 22%, 82%);  // emphasized borders
+
+// --- Spacing scale (8px base) ----------------------------------------------
+$mx-space-1:  8px;
+$mx-space-2:  16px;
+$mx-space-3:  24px;
+$mx-space-4:  32px;
+$mx-space-6:  48px;
+$mx-space-8:  64px;
+$mx-space-10: 80px;
+
+// --- Radii -----------------------------------------------------------------
+$mx-radius-sm: 6px;
+$mx-radius:    10px;
+$mx-radius-lg: 16px;
+
+// --- Elevation -------------------------------------------------------------
+$mx-shadow-sm: 0 1px 2px rgba($mx-ink-900, .05), 0 1px 3px rgba($mx-ink-900, .06);
+$mx-shadow-md: 0 2px 4px rgba($mx-ink-900, .04), 0 8px 24px rgba($mx-ink-900, .09);
+$mx-shadow-lg: 0 4px 8px rgba($mx-ink-900, .05), 0 20px 48px rgba($mx-ink-900, .14);
+$mx-focus-ring: 0 0 0 3px rgba($mx-blue, .35);
+
+// --- Layout ----------------------------------------------------------------
+$mx-navbar-height: 52px;
+$mx-anchor-offset: $mx-navbar-height + $mx-space-3; // fixed-navbar jump offset
+
+// ===========================================================================
+// Bootstrap/Cosmo `!default` overrides (must precede the imports)
+// ===========================================================================
+
+// Colors
+$text-color:        $mx-text;
+$link-hover-color:  $mx-blue-600;
+$headings-color:    $mx-ink-900;
+
+// Typography
+$font-size-base:    16px;
+$line-height-base:  1.6;
+$font-size-h1:      42px;
+$font-size-h2:      32px;
+$font-size-h3:      24px;
+$font-size-h4:      19px;
+$headings-font-weight: 600;
+$headings-line-height: 1.2;
+
+// Shape
+$border-radius-base:  $mx-radius-sm;
+$border-radius-large: $mx-radius;
+$border-radius-small: 4px;
+$btn-border-radius-base:  8px;
+$btn-border-radius-large: $mx-radius;
+
+// Navbar: collapse below 992px so the item row never wraps onto a second
+// line over the content (it overflows the 750px container at md widths).
+$grid-float-breakpoint: 992px;
+$navbar-height: $mx-navbar-height;
+
+// Code
+$code-color: $mx-blue-700;
+$code-bg:    $mx-blue-050;
+$pre-bg:     $mx-ink-900;
+$pre-color:  mix(#fff, $mx-ink-900, 88%);
+$pre-border-color: transparent;
+
+// Cards/wells
+$well-bg:     #fff;
+$well-border: $mx-border;
+$panel-default-border:     $mx-border;
+$panel-default-heading-bg: $mx-blue-050;
+$list-group-border:        $mx-border;
+$hr-border:                $mx-border;
+$blockquote-border-color:  $mx-blue-200;
+
 // Import partials from `sass_dir` (defaults to `_sass`)
 
 
@@ -78,8 +174,8 @@ body {
 *[id]:before {
   display: block;
   content: " ";
-  margin-top: -75px;
-  height: 75px;
+  margin-top: -$mx-anchor-offset;
+  height: $mx-anchor-offset;
   visibility: hidden;
 }
 .navbar-form .has-feedback .form-control-feedback{
