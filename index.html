@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "modelx — Open-Source Actuarial Modeling System in Python"
+mermaid: true
 ---
 
 {% assign feature_page = site.pages | where: "name", "features.md" | first %}
@@ -159,35 +160,67 @@ conda install -c conda-forge modelx
     <h2 class="text-center"><a href="{{site.baseurl}}{{feature_page.url}}"><i class="fa fa-bolt" aria-hidden="true"></i></a></h2>
     <h2 align="center" id="features"><a href="{{site.baseurl}}{{feature_page.url}}">Highlights</a></h2>
 
-    {% for group in feature_page.feature_groups %}
-    {% unless group.homepage %}{% continue %}{% endunless %}
-    {% if group.prominent %}
-    {% assign col_class = "col-sm-6" %}{% assign per_row = 2 %}
-    {% elsif group.features.size == 1 %}
-    {% assign col_class = "col-sm-8 col-sm-offset-2" %}{% assign per_row = 1 %}
-    {% else %}
-    {% assign col_class = "col-sm-4" %}{% assign per_row = 3 %}
-    {% endif %}
-    {% if group.prominent %}<div class="well">{% endif %}
-    <h3 class="text-center">{{ group.title }}</h3>
     <div class="row">
-        {% for feature in group.features %}
-        {% assign auto_slug = feature.title | slugify %}
-        {% assign slug = feature.slug | default: auto_slug %}
-        {% assign feature_url = site.baseurl | append: feature_page.url | append: "#" | append: slug %}
-        <div class="{{ col_class }}">
-            <h3 class="text-center"><a href="{{ feature_url }}">{{feature.title}}</a></h3>
-            <p>{{ feature.intro }} <a href="{{ feature_url }}">Read More>></a></p>
+        <div class="col-md-12">
+            <h3 class="header-light">From model to native code</h3>
+            <p>Ship models as plain Python, and compile them to native code
+            when you need speed. No step requires modelx at runtime&mdash;or
+            any proprietary system.</p>
         </div>
-        {% assign mod = forloop.index | modulo: per_row %}
-        {% if mod == 0 and forloop.last == false %}
+        <div class="col-md-12 text-center">
+<pre><code class="language-mermaid">
+graph LR
+A(Build in modelx) --> B("model.export()")
+B --> C(Pure-Python package<br>runs without modelx)
+C --> D(mx2cy)
+D --> E(Native-compiled model)
+</code></pre>
+        </div>
+        <div class="col-md-12">
+{% highlight console %}
+$ mx2cy TermLife_ex   # exported model -> Cython -> native code
+{% endhighlight %}
+            <p><a href="{{site.baseurl}}{{feature_page.url}}#export-to-pure-python">Export to pure Python &raquo;</a>
+            &nbsp;&middot;&nbsp;
+            <a href="{{site.baseurl}}{{feature_page.url}}#native-compilation-with-modelx-cython">Native compilation &raquo;</a></p>
+        </div>
     </div>
+
     <div class="row">
-        {% endif %}
-        {% endfor %}
+        <div class="col-md-12">
+            <h3 class="header-light">A GUI in your IDE</h3>
+            <p><a href="https://docs.modelx.io/en/latest/spyder.html">spyder-modelx</a>
+            embeds modelx in the <a href="https://www.spyder-ide.org/">Spyder</a> IDE:
+            browse the model as a tree in <em>MxExplorer</em> with each formula a
+            click away, inspect results as DataFrames in <em>MxDataViewer</em>,
+            and trace precedents and dependents interactively.</p>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            <a href="{{site.baseurl}}/img/MxPluginImage.png">
+              <img src="{{site.baseurl}}/img/MxPluginImage.png"
+                alt="spyder-modelx in Spyder: MxExplorer model tree, formula pane, MxDataViewer and dependency tracing"
+                class="img-responsive">
+            </a>
+        </div>
+        <div class="col-md-12">
+            <p><a href="{{site.baseurl}}{{feature_page.url}}#gui-as-spyder-plugin">GUI as Spyder plugin &raquo;</a></p>
+        </div>
     </div>
-    {% if group.prominent %}</div>{% endif %}
-    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="header-light">One model, every scenario</h3>
+            <p>Write a space once, then apply it to arbitrary combinations of
+            inputs&mdash;no changes to the formulas.</p>
+{% highlight pycon %}
+>>> space.parameters = ("Rate", "Term")
+
+>>> space[3, 10].Payment()
+117.23050660515952
+{% endhighlight %}
+            <p><a href="{{site.baseurl}}{{feature_page.url}}#parameterization">Parameterization &raquo;</a></p>
+        </div>
+    </div>
 
     <p class="text-center">
         <a class="btn btn-primary btn-lg" href="{{site.baseurl}}{{feature_page.url}}">Why modelx &mdash; all features &rarr;</a>
