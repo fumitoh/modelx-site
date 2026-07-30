@@ -119,12 +119,19 @@ $blockquote-border-color:  $mx-blue-200;
 ;
 
 html {
-  position: relative;
-  min-height: 100%;
+  height: 100%;
 }
+// Flex column keeps the footer at the viewport bottom on short pages while
+// letting it grow to its natural (multi-column) height.
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   padding-top: $navbar-height + $navbar-margin-bottom;
-  margin-bottom: 46px;
+}
+.page-content {
+  flex: 1 0 auto;
+  width: 100%;
 }
 
 // ===========================================================================
@@ -516,13 +523,45 @@ pre:has(> code.language-mermaid) {
   padding-bottom: 20px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  height: 46px;
-  padding-top: 10px;
-  background-color: $gray-lighter;
-  color: $gray-dark;
+  margin-top: $mx-space-8;
+  padding: $mx-space-6 0 $mx-space-3;
+  background-color: $mx-ink-900;
+  color: rgba(#fff, .75);
+
+  h5 {
+    margin: 0 0 12px;
+    color: rgba(#fff, .55);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: mix(#fff, $mx-ink-900, 78%);
+
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+  }
+
+  .footer-col {
+    margin-bottom: $mx-space-3;
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
+
+  .footer-legal {
+    margin: $mx-space-2 0 0;
+    padding-top: $mx-space-3;
+    border-top: 1px solid rgba(#fff, .12);
+    color: rgba(#fff, .55);
+    font-size: 14px;
+  }
 }
 
 .post-list-container {
