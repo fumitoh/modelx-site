@@ -108,10 +108,8 @@ No step requires a proprietary runtime.
 
 <pre><code class="language-mermaid">
 graph LR
-A(Build in modelx) --> B("model.export()")
-B --> C(Pure-Python package<br>runs without modelx)
-C --> D(mx2cy)
-D --> E(Native-compiled model)
+A(Build in modelx) -- "model.export()" --> B(Pure-Python package<br>runs without modelx)
+B -- mx2cy --> C(Native-compiled model)
 </code></pre>
 
 ### Export to pure Python
