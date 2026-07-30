@@ -181,6 +181,82 @@ blockquote {
   font-size: $font-size-base;
 }
 
+// ===========================================================================
+// Buttons and links
+// ===========================================================================
+
+a {
+  transition: color .12s ease;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $mx-focus-ring;
+    border-radius: 2px;
+  }
+}
+
+.btn {
+  font-weight: 600;
+  transition: background-color .12s ease, border-color .12s ease,
+              color .12s ease, box-shadow .12s ease;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: $mx-focus-ring;
+  }
+}
+
+.btn-primary {
+  box-shadow: $mx-shadow-sm;
+
+  &:hover {
+    background-color: $mx-blue-600;
+    border-color: $mx-blue-600;
+  }
+
+  &:active,
+  &.active {
+    background-color: $mx-blue-700;
+    border-color: $mx-blue-700;
+  }
+
+  &:focus,
+  &:focus-visible {
+    background-color: $mx-blue-600;
+    border-color: $mx-blue-600;
+    box-shadow: $mx-focus-ring;
+  }
+}
+
+// Ghost/secondary variant: quiet outline button on white or tinted surfaces.
+.btn-ghost {
+  color: $mx-blue-700;
+  background-color: #fff;
+  border: 1px solid $mx-border-strong;
+
+  &:hover {
+    color: $mx-blue-600;
+    background-color: $mx-blue-050;
+    border-color: $mx-blue;
+  }
+
+  &:active {
+    background-color: $mx-blue-100;
+  }
+
+  &:focus,
+  &:focus-visible {
+    color: $mx-blue-600;
+    box-shadow: $mx-focus-ring;
+  }
+}
+
+.btn-lg {
+  font-size: 17px;
+  padding: 12px 28px;
+}
+
 .navbar-brand{
   img{
     margin: -$navbar-padding-vertical 0;
