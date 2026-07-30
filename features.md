@@ -8,7 +8,6 @@ redirect_from:
 feature_groups:
     - title: Deployment & performance
       prominent: true
-      homepage: true
       features:
         - title: Export to pure Python
           intro: >
@@ -21,7 +20,6 @@ feature_groups:
             for faster execution.
 
     - title: Modeling in a GUI
-      homepage: true
       features:
         - title: GUI as Spyder plugin
           intro: >
