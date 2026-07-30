@@ -489,6 +489,54 @@ pre:has(> code.language-mermaid) {
 }
 
 // ===========================================================================
+// Features page
+// ===========================================================================
+
+// Signpost strip ("Coming from ...") as three equal cards.
+.feature-signposts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $mx-space-2;
+  margin: $mx-space-3 0 $mx-space-2;
+
+  > [class*="col-"] {
+    float: none;
+    width: auto;
+    flex: 1 1 240px;
+    padding: 20px $mx-space-3;
+    background-color: #fff;
+    border: 1px solid $mx-border;
+    border-radius: $mx-radius;
+    box-shadow: $mx-shadow-sm;
+
+    h3 {
+      margin-top: 0;
+      font-size: 19px;
+    }
+
+    ul {
+      margin-bottom: 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+// Content images (plugin and tracing screenshots, parameterization figure)
+// framed like the other panels.
+#markdown-content-container img,
+.home-section img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid $mx-border;
+  border-radius: $mx-radius;
+  box-shadow: $mx-shadow-md;
+}
+
+// ===========================================================================
 // Cards and panels
 // ===========================================================================
 

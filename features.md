@@ -73,7 +73,7 @@ An actuarial modeling system has to deliver four things at once:
 **maintainability**. modelx approaches all four with a single principle:
 actuarial models are code &mdash; plain, readable Python.
 
-<div class="row">
+<div class="row feature-signposts">
   <div class="col-sm-4">
     <h3 id="coming-from-excel">Coming from Excel</h3>
     <ul>
