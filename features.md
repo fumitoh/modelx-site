@@ -162,24 +162,6 @@ set of trade-offs:
   modelx-cython. Production performance does not require a proprietary
   runtime.
 
-## Honest tradeoffs
-
-modelx is not a commercial product, and it is fair to be clear about what
-that means:
-
-* **No vendor support contract.** Support is community-based, primarily
-  through [GitHub Discussions](https://github.com/fumitoh/modelx/discussions).
-* **You build your own production models.**
-  [lifelib](https://lifelib.io) provides working examples and reference
-  implementations to start from, not turnkey production models.
-* **A smaller ecosystem.** The community of consultants, tools and
-  training around modelx is smaller than those of long-established
-  commercial vendors.
-
-For teams that want full control over their models &mdash; and the ability
-to read every line of them &mdash; these trade-offs are usually the point.
-
-
 ## Governance & auditability
 
 ### Dependency tracing
