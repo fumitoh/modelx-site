@@ -47,7 +47,10 @@ $mx-radius-lg: 16px;
 $mx-shadow-sm: 0 1px 2px rgba($mx-ink-900, .05), 0 1px 3px rgba($mx-ink-900, .06);
 $mx-shadow-md: 0 2px 4px rgba($mx-ink-900, .04), 0 8px 24px rgba($mx-ink-900, .09);
 $mx-shadow-lg: 0 4px 8px rgba($mx-ink-900, .05), 0 20px 48px rgba($mx-ink-900, .14);
-$mx-focus-ring: 0 0 0 3px rgba($mx-blue, .35);
+// Two-layer ring: the white gap keeps it visible on tinted and dark
+// surfaces, the blue-600 outer layer is 6.1:1 against white (>= 3:1
+// non-text requirement everywhere it appears).
+$mx-focus-ring: 0 0 0 2px #fff, 0 0 0 4px $mx-blue-600;
 
 // --- Layout ----------------------------------------------------------------
 $mx-navbar-height: 52px;
@@ -291,23 +294,26 @@ a {
   box-shadow: inset 0 -1px 0 rgba(#fff, .12), 0 1px 8px rgba($mx-ink-900, .12);
 }
 
-.navbar .navbar-nav > li > a {
+// The nav element carries only the navbar-inverse/-default/-fixed-top
+// variant classes (no bare `navbar` token), so every rule here must be
+// keyed on .navbar-inverse.
+.navbar-inverse .navbar-nav > li > a {
   transition: background-color .12s ease;
 }
 
 // Pill-shaped hover/active states on the expanded bar only; the collapsed
-// (stacked) menu keeps full-width rows.
+// (stacked) menu keeps full-width rows. Fills darken rather than lighten:
+// white 16px text needs a darker blue to stay above AA (white on the base
+// blue is already borderline, and a white-tinted fill would drop it below).
 @media (min-width: $grid-float-breakpoint) {
-  .navbar .navbar-nav > li > a {
+  .navbar-inverse .navbar-nav > li > a {
     padding: 6px 11px;
     margin: (($navbar-height - 37px) / 2) 2px;
     border-radius: $mx-radius-sm;
-  }
 
-  .navbar-inverse .navbar-nav > li > a {
     &:hover,
     &:focus {
-      background-color: rgba(#fff, .16);
+      background-color: $mx-blue-600; // white text 6.1:1
     }
   }
 
@@ -315,7 +321,7 @@ a {
     &,
     &:hover,
     &:focus {
-      background-color: rgba(#fff, .22);
+      background-color: $mx-blue-700; // white text 8.2:1
       font-weight: 600;
     }
   }
@@ -323,7 +329,7 @@ a {
 
 .navbar-inverse .navbar-nav > li > a:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(#fff, .45);
+  box-shadow: 0 0 0 2px $mx-blue, 0 0 0 4px #fff;
 }
 
 // ===========================================================================
@@ -501,6 +507,13 @@ pre:has(> code.language-mermaid) {
   gap: $mx-space-2;
   margin: $mx-space-3 0 $mx-space-2;
 
+  // Bootstrap's .row clearfix pseudo-elements would become zero-width flex
+  // items and pick up their own gap; a flex container needs no clearfix.
+  &:before,
+  &:after {
+    content: none;
+  }
+
   > [class*="col-"] {
     float: none;
     width: auto;
@@ -603,6 +616,17 @@ pre:has(> code.language-mermaid) {
     &:focus {
       background-color: $mx-blue-050;
       color: $mx-blue-600;
+    }
+
+    // Current page in the docs sidebar: tinted instead of Bootstrap's solid
+    // blue, which the color override above would otherwise make unreadable.
+    &.active,
+    &.active:hover,
+    &.active:focus {
+      background-color: $mx-blue-100;
+      border-color: transparent;
+      color: $mx-blue-700;
+      font-weight: 600;
     }
   }
 }
@@ -743,8 +767,4 @@ pre:has(> code.language-mermaid) {
     left: 0;
     width: 100%;
     height: 100%;
-}
-.video-row {
-    margin-top: 40px;
-    margin-bottom: 40px;
 }
