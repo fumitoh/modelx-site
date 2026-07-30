@@ -1,71 +1,89 @@
 /**
- * Syntax highlighting styles
+ * Syntax highlighting styles — dark scheme for the elevated code panels.
+ *
+ * Designed against the panel background $mx-ink-900; every token color is
+ * checked for WCAG AA (>= 4.5:1) contrast on that background. The palette
+ * stays close to the site accent: blues for keywords/names, muted blue-gray
+ * for comments and prompts, with one green (strings) and one amber (numbers)
+ * as conventional counterpoints.
  */
+
+$mx-code-base:    #DCE6F2; // default token text
+$mx-code-muted:   #7F97B0; // comments, prompts
+$mx-code-subtle:  #B8C9DC; // operators, punctuation-adjacent tokens
+$mx-code-keyword: #82B4FF;
+$mx-code-name:    #7CC7FF; // functions, classes, builtins
+$mx-code-string:  #7FD99A;
+$mx-code-number:  #F0B37E;
+$mx-code-error:   #FFB3C0;
+$mx-code-output:  #B9C9DB; // interpreter/console output lines
+
 .highlight {
-    background: #f5f5f5;
+    background: transparent; // the panel surface comes from `pre`
+    color: $mx-code-base;
 
-
-    .hll { background-color: #f8f8f8; border: 1px solid #ccc; padding: 6px 10px; border-radius: 3px; }
-    .c { color: #999988; font-style: italic; }
-    .err { color: #a61717; background-color: #e3d2d2; }
-    .k { font-weight: bold; }
-    .o { font-weight: bold; }
-    .cm { color: #999988; font-style: italic; }
-    .cp { color: #999999; font-weight: bold; }
-    .c1 { color: #999988; font-style: italic; }
-    .cs { color: #999999; font-weight: bold; font-style: italic; }
-    .gd { color: #000000; background-color: #ffdddd; }
-    .gd .x { color: #000000; background-color: #ffaaaa; }
+    .hll { background-color: rgba($mx-code-keyword, .12); }
+    .c { color: $mx-code-muted; font-style: italic; }
+    .err { color: $mx-code-error; }
+    .k { color: $mx-code-keyword; font-weight: 600; }
+    .o { color: $mx-code-subtle; }
+    .cm { color: $mx-code-muted; font-style: italic; }
+    .cp { color: $mx-code-muted; }
+    .c1 { color: $mx-code-muted; font-style: italic; }
+    .cs { color: $mx-code-muted; font-style: italic; }
+    .gd { color: $mx-code-error; }
+    .gd .x { color: $mx-code-error; }
     .ge { font-style: italic; }
-    .gr { color: #aa0000; }
-    .gh { color: #999999; }
-    .gi { color: #000000; background-color: #ddffdd; }
-    .gi .x { color: #000000; background-color: #aaffaa; }
-    .go { color: #888888; }
-    .gp { color: #555555; }
-    .gs { font-weight: bold; }
-    .gu { color: #800080; font-weight: bold; }
-    .gt { color: #aa0000; }
-    .kc { font-weight: bold; }
-    .kd { font-weight: bold; }
-    .kn { font-weight: bold; }
-    .kp { font-weight: bold; }
-    .kr { font-weight: bold; }
-    .kt { color: #445588; font-weight: bold; }
-    .m { color: #009999; }
-    .s { color: #dd1144; }
-    .n { color: #333333; }
-    .na { color: teal; }
-    .nb { color: #0086b3; }
-    .nc { color: #445588; font-weight: bold; }
-    .no { color: teal; }
-    .ni { color: purple; }
-    .ne { color: #990000; font-weight: bold; }
-    .nf { color: #990000; font-weight: bold; }
-    .nn { color: #555555; }
-    .nt { color: navy; }
-    .nv { color: teal; }
-    .ow { font-weight: bold; }
-    .w { color: #bbbbbb; }
-    .mf { color: #009999; }
-    .mh { color: #009999; }
-    .mi { color: #009999; }
-    .mo { color: #009999; }
-    .sb { color: #dd1144; }
-    .sc { color: #dd1144; }
-    .sd { color: #dd1144; }
-    .s2 { color: #dd1144; }
-    .se { color: #dd1144; }
-    .sh { color: #dd1144; }
-    .si { color: #dd1144; }
-    .sx { color: #dd1144; }
-    .sr { color: #009926; }
-    .s1 { color: #dd1144; }
-    .ss { color: #990073; }
-    .bp { color: #999999; }
-    .vc { color: teal; }
-    .vg { color: teal; }
-    .vi { color: teal; }
-    .il { color: #009999; }
-    .gc { color: #999; background-color: #EAF2F5; }
+    .gr { color: $mx-code-error; }
+    .gh { color: $mx-code-subtle; font-weight: 600; }
+    .gi { color: $mx-code-string; }
+    .gi .x { color: $mx-code-string; }
+    .go { color: $mx-code-output; }
+    .gp { color: $mx-code-muted; }
+    .gs { font-weight: 600; }
+    .gu { color: $mx-code-subtle; font-weight: 600; }
+    .gt { color: $mx-code-error; }
+    .kc { color: $mx-code-keyword; font-weight: 600; }
+    .kd { color: $mx-code-keyword; font-weight: 600; }
+    .kn { color: $mx-code-keyword; font-weight: 600; }
+    .kp { color: $mx-code-keyword; }
+    .kr { color: $mx-code-keyword; font-weight: 600; }
+    .kt { color: $mx-code-name; font-weight: 600; }
+    .m { color: $mx-code-number; }
+    .s { color: $mx-code-string; }
+    .n { color: $mx-code-base; }
+    .na { color: $mx-code-name; }
+    .nb { color: $mx-code-name; }
+    .nc { color: $mx-code-name; font-weight: 600; }
+    .no { color: $mx-code-name; }
+    .nd { color: $mx-code-keyword; }
+    .ni { color: $mx-code-subtle; }
+    .ne { color: $mx-code-name; font-weight: 600; }
+    .nf { color: $mx-code-name; font-weight: 600; }
+    .nn { color: $mx-code-base; }
+    .nt { color: $mx-code-keyword; }
+    .nv { color: $mx-code-base; }
+    .ow { color: $mx-code-keyword; font-weight: 600; }
+    .w { color: rgba($mx-code-base, .4); }
+    .mf { color: $mx-code-number; }
+    .mh { color: $mx-code-number; }
+    .mi { color: $mx-code-number; }
+    .mo { color: $mx-code-number; }
+    .sb { color: $mx-code-string; }
+    .sc { color: $mx-code-string; }
+    .sd { color: $mx-code-string; font-style: italic; }
+    .s2 { color: $mx-code-string; }
+    .se { color: $mx-code-string; }
+    .sh { color: $mx-code-string; }
+    .si { color: $mx-code-string; }
+    .sx { color: $mx-code-string; }
+    .sr { color: $mx-code-string; }
+    .s1 { color: $mx-code-string; }
+    .ss { color: $mx-code-string; }
+    .bp { color: $mx-code-name; }
+    .vc { color: $mx-code-base; }
+    .vg { color: $mx-code-base; }
+    .vi { color: $mx-code-base; }
+    .il { color: $mx-code-number; }
+    .gc { color: $mx-code-muted; }
 }

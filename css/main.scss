@@ -375,6 +375,57 @@ a {
   margin-bottom: $mx-space-4;
 }
 
+// ===========================================================================
+// Code panels
+// ===========================================================================
+
+// Every rouge block (python, pycon, console, plaintext) renders as an
+// elevated dark panel; lines scroll horizontally instead of wrapping.
+pre {
+  padding: 20px 24px;
+  margin-top: $mx-space-2;
+  margin-bottom: $mx-space-3;
+  font-size: 14px;
+  line-height: 1.65;
+  border-radius: $mx-radius;
+  box-shadow: $mx-shadow-md, inset 0 1px 0 rgba(#fff, .07);
+  overflow-x: auto;
+  word-break: normal;
+  word-wrap: normal;
+
+  code {
+    white-space: pre;
+    border: 0;
+  }
+}
+
+figure.highlight {
+  margin: 0;
+}
+
+// Inline code: quiet chip on the lightest blue tint.
+code {
+  padding: 2px 6px;
+  font-size: 88%;
+  border: 1px solid $mx-blue-100;
+}
+
+// Mermaid diagram containers: white panel matching the card surfaces (the
+// default mermaid theme draws dark text, so it stays on white, not ink).
+pre > code.language-mermaid {
+  display: block;
+  background-color: #fff;
+  color: $mx-text;
+  padding: $mx-space-2 0;
+  text-align: center;
+}
+
+pre:has(> code.language-mermaid) {
+  background-color: #fff;
+  border: 1px solid $mx-border;
+  box-shadow: $mx-shadow-sm;
+}
+
 
 .header-container {
   background-color: black;
