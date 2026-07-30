@@ -426,6 +426,75 @@ pre:has(> code.language-mermaid) {
   box-shadow: $mx-shadow-sm;
 }
 
+// ===========================================================================
+// Cards and panels
+// ===========================================================================
+
+.well {
+  border-radius: $mx-radius;
+  box-shadow: $mx-shadow-sm;
+  padding: $mx-space-3;
+}
+
+// Features sidebar (features_nav include): card surface with quiet group
+// headers instead of the stock gray accordion panel.
+.panel-group .panel-default {
+  border-color: $mx-border;
+  border-radius: $mx-radius;
+  box-shadow: $mx-shadow-sm;
+  overflow: hidden;
+
+  .panel-heading {
+    background-color: $mx-blue-050;
+    border-bottom: 1px solid $mx-border;
+    padding: 12px 16px;
+
+    a {
+      color: $mx-ink-900;
+      font-weight: 600;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: $mx-blue-600;
+      }
+    }
+  }
+
+  .list-group {
+    margin-bottom: 0;
+  }
+
+  .list-group-item {
+    border: 0;
+    padding: 6px 16px;
+    font-size: 15px;
+  }
+
+  span.list-group-item.disabled {
+    background-color: transparent;
+    color: $mx-text-muted;
+    font-size: 12.5px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding-top: $mx-space-2;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  a.list-group-item {
+    color: $mx-text;
+
+    &:hover,
+    &:focus {
+      background-color: $mx-blue-050;
+      color: $mx-blue-600;
+    }
+  }
+}
+
 
 .header-container {
   background-color: black;
