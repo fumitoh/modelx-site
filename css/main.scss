@@ -667,9 +667,53 @@ pre:has(> code.language-mermaid) {
   }
 }
 
+// ===========================================================================
+// Blog and content pages
+// ===========================================================================
+
+// Recent-posts sidebar: match the features sidebar's card language.
+.well h4 {
+  margin: 0 0 12px;
+  color: $mx-text-muted;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
 .post-list-container {
+  li {
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+
   li a.active {
-    font-weight: bold;
+    font-weight: 600;
+    color: $mx-blue-700;
+  }
+}
+
+// Post byline under the title.
+.post-meta {
+  color: $mx-text-muted;
+  font-size: 15px;
+  margin-bottom: $mx-space-3;
+}
+
+// All-posts index: title rows with quiet date lines.
+.allposts {
+  p {
+    margin-bottom: $mx-space-2;
+  }
+
+  strong a {
+    font-size: 18px;
+  }
+
+  span {
+    display: block;
+    color: $mx-text-muted;
+    font-size: 14px;
   }
 }
 *[id]:before {

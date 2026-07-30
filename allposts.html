@@ -6,7 +6,7 @@ sectionid: blog
 
 
 <div class="container">
-    <div class="inner-content">
+    <div class="inner-content allposts">
         <h1>All Posts</h1> {% for page in site.posts %}
         <p>
             <strong><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></strong>
