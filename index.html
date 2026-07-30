@@ -7,7 +7,7 @@ mermaid: true
 {% assign feature_page = site.pages | where: "name", "features.md" | first %}
 
 <div class="container">
-    <div class="row">
+    <div class="row home-hero">
         <div class="col-md-12">
             <h1 class="header-light regular-pad">modelx: Actuarial Models as Code</h1>
               <p class="lead">modelx is the open-source actuarial modeling
@@ -28,12 +28,12 @@ mermaid: true
               is available as a plugin for the
               <a href="https://www.spyder-ide.org/">Spyder</a> IDE.
               </p>
-              <p class="small">
+              <p class="small home-meta">
                 In continuous development since 2017 &middot; LGPLv3 &middot;
                 Distributed on PyPI and conda-forge
                 <!-- TODO(fumito): confirm wording of the versioning/deprecation policy and link it if a policy page exists -->
               </p>
-              <p>
+              <p class="home-badges">
                 <a href="https://pypi.org/project/modelx/"><img src="https://img.shields.io/pypi/v/modelx" alt="PyPI version"></a>
                 <a href="https://pypi.org/project/modelx/"><img src="https://img.shields.io/pypi/dm/modelx" alt="PyPI downloads per month"></a>
                 <a href="https://anaconda.org/conda-forge/modelx"><img src="https://img.shields.io/conda/vn/conda-forge/modelx" alt="conda-forge version"></a>
@@ -55,7 +55,7 @@ mermaid: true
     </div>
 
     <!-- TODO(fumito): screenshot or GIF of MxExplorer / dependency graph -->
-    <div class="row">
+    <div class="row home-code">
         <div class="col-md-6">
             <h3 class="header-light">Build a model with formulas</h3>
 {% highlight python %}
