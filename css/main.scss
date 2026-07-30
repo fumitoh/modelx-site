@@ -433,6 +433,9 @@ pre > code.language-mermaid {
   color: $mx-text;
   padding: $mx-space-2 0;
   text-align: center;
+  // Mermaid measures its HTML labels at render time, so the label font set
+  // here scales the node boxes with the text (panels default to 14px).
+  font-size: 17px;
 }
 
 pre:has(> code.language-mermaid) {
