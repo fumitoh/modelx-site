@@ -16,8 +16,9 @@ $mx-blue:          #2780E3;                    // base accent = $brand-primary
 $mx-blue-050:      mix(#fff, $mx-blue, 96%);   // lightest tint: section/panel bg
 $mx-blue-100:      mix(#fff, $mx-blue, 88%);   // hover fills, badges
 $mx-blue-200:      mix(#fff, $mx-blue, 72%);   // borders on tinted surfaces
-$mx-blue-600:      darken($mx-blue, 12%);      // link/button hover
-$mx-blue-700:      darken($mx-blue, 20%);      // pressed states, accent text
+$mx-blue-600:      darken($mx-blue, 12%);      // links, primary buttons (AA on white)
+$mx-blue-700:      darken($mx-blue, 20%);      // hover, accent text
+$mx-blue-800:      darken($mx-blue, 26%);      // pressed states
 
 // --- Ink (blue-gray neutral) scale -----------------------------------------
 // Neutrals share the accent hue so grays never look mismatched next to blue.
@@ -56,10 +57,15 @@ $mx-anchor-offset: $mx-navbar-height + $mx-space-3; // fixed-navbar jump offset
 // Bootstrap/Cosmo `!default` overrides (must precede the imports)
 // ===========================================================================
 
-// Colors
+// Colors. Links and primary buttons sit one step down the scale: the base
+// blue is 3.98:1 on white (fails AA for body text), blue-600 is 6.1:1.
+// The navbar keeps the base blue as the brand identity element.
 $text-color:        $mx-text;
-$link-hover-color:  $mx-blue-600;
+$link-color:        $mx-blue-600;
+$link-hover-color:  $mx-blue-700;
 $headings-color:    $mx-ink-900;
+$brand-primary:     $mx-blue;
+$btn-primary-bg:    $mx-blue-600;
 
 // Typography
 $font-size-base:    16px;
@@ -218,20 +224,20 @@ a {
   box-shadow: $mx-shadow-sm;
 
   &:hover {
-    background-color: $mx-blue-600;
-    border-color: $mx-blue-600;
-  }
-
-  &:active,
-  &.active {
     background-color: $mx-blue-700;
     border-color: $mx-blue-700;
   }
 
+  &:active,
+  &.active {
+    background-color: $mx-blue-800;
+    border-color: $mx-blue-800;
+  }
+
   &:focus,
   &:focus-visible {
-    background-color: $mx-blue-600;
-    border-color: $mx-blue-600;
+    background-color: $mx-blue-700;
+    border-color: $mx-blue-700;
     box-shadow: $mx-focus-ring;
   }
 }
@@ -277,16 +283,12 @@ a {
 // Navbar
 // ===========================================================================
 
+// Solid brand blue: a translucent bar over white content would lighten the
+// effective background and push the white nav text below its current
+// contrast, so translucency is deliberately not used.
 .navbar-inverse {
   border: 0;
   box-shadow: inset 0 -1px 0 rgba(#fff, .12), 0 1px 8px rgba($mx-ink-900, .12);
-
-  // Subtle translucency where backdrop-filter is available; solid otherwise.
-  @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-    background-color: rgba($mx-blue, .90);
-    -webkit-backdrop-filter: saturate(160%) blur(10px);
-    backdrop-filter: saturate(160%) blur(10px);
-  }
 }
 
 .navbar .navbar-nav > li > a {
