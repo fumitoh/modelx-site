@@ -157,9 +157,10 @@ conda install -c conda-forge modelx
 
     <hr>
     <h2 class="text-center"><a href="{{site.baseurl}}{{feature_page.url}}"><i class="fa fa-bolt" aria-hidden="true"></i></a></h2>
-    <h2 align="center" id="features"><a href="{{site.baseurl}}{{feature_page.url}}">Features</a></h2>
+    <h2 align="center" id="features"><a href="{{site.baseurl}}{{feature_page.url}}">Highlights</a></h2>
 
     {% for group in feature_page.feature_groups %}
+    {% unless group.homepage %}{% continue %}{% endunless %}
     {% if group.prominent %}
     {% assign col_class = "col-sm-6" %}{% assign per_row = 2 %}
     {% elsif group.features.size == 1 %}
@@ -187,5 +188,9 @@ conda install -c conda-forge modelx
     </div>
     {% if group.prominent %}</div>{% endif %}
     {% endfor %}
+
+    <p class="text-center">
+        <a class="btn btn-primary btn-lg" href="{{site.baseurl}}{{feature_page.url}}">Why modelx &mdash; all features &rarr;</a>
+    </p>
     <hr>
 </div>
