@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | prepend: site.baseurl }}">
 
     <link rel="shortcut icon" href="{{ "/favicon.ico?1" | prepend: site.baseurl }}">
-    <style>
-    p { font-size: 16px}
-
-    </style>
     <title>{% if page.url == "/" %}{{ page.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     {% seo title=false %}
     <!-- TODO(fumito): provide a social card image for og:image -->
