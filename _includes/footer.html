@@ -1,7 +1,34 @@
 <footer class="footer">
     <div class="container">
 
-        <p class="text-center">
+        <div class="row footer-cols">
+            <div class="col-sm-4 footer-col">
+                <h5>Product</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ site.baseurl }}/#install">Install</a></li>
+                    <li><a href="{{ "/features.html" | prepend: site.baseurl }}">Why modelx</a></li>
+                    <li><a href="{{ "/ai.html" | prepend: site.baseurl }}">AI Agents</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 footer-col">
+                <h5>Learn</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://docs.modelx.io/en/latest/tutorial/index.html">Get Started</a></li>
+                    <li><a href="https://docs.modelx.io/en/latest/index.html">Docs</a></li>
+                    <li><a href="https://lifelib.io">Examples (lifelib)</a></li>
+                    <li><a href="{{ "/allposts.html" | prepend: site.baseurl }}">Blog</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 footer-col">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ site.git_address }}">GitHub</a></li>
+                    <li><a href="https://github.com/fumitoh/modelx/discussions">Discussions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="footer-legal text-center">
             &copy; 2017-{{ site.time | date: '%Y' }}, <a href="{{ site.author.linkedin }}">{{ site.author.name }}</a> |
             Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
         </p>
