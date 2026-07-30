@@ -19,8 +19,18 @@ $mx-code-error:   #FFB3C0;
 $mx-code-output:  #B9C9DB; // interpreter/console output lines
 
 .highlight {
-    background: transparent; // the panel surface comes from `pre`
     color: $mx-code-base;
+}
+
+// The panel surface comes from `pre` (see main.scss); the rouge wrapper
+// div/figure must not paint behind the rounded panel. Kramdown also emits
+// `pre.highlight`, which keeps its `pre` background by not matching here.
+div.highlight,
+figure.highlight {
+    background: transparent;
+}
+
+.highlight {
 
     .hll { background-color: rgba($mx-code-keyword, .12); }
     .c { color: $mx-code-muted; font-style: italic; }
