@@ -596,13 +596,20 @@ pre:has(> code.language-mermaid) {
     font-size: 15px;
   }
 
+  // Group headers: a quiet neutral band (ink-derived, so it can't be
+  // mistaken for the blue link-hover tint) plus a hairline separator.
   span.list-group-item.disabled {
-    background-color: transparent;
+    background-color: mix(#fff, $mx-ink-900, 96%);
     color: $mx-text-muted;
     font-size: 12.5px;
     letter-spacing: .05em;
     text-transform: uppercase;
-    padding-top: $mx-space-2;
+    padding: 9px 16px 7px;
+    border-top: 1px solid $mx-border;
+
+    &:first-child {
+      border-top: 0; // the panel heading above already draws this line
+    }
 
     strong {
       font-weight: 600;
