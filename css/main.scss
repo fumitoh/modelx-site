@@ -317,6 +317,64 @@ a {
   box-shadow: 0 0 0 3px rgba(#fff, .45);
 }
 
+// ===========================================================================
+// Homepage hero
+// ===========================================================================
+
+.home-hero {
+  h1 {
+    margin-top: $mx-space-4;
+    margin-bottom: $mx-space-3;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 48px;
+    }
+
+    @media (min-width: $screen-md-min) {
+      font-size: 54px;
+    }
+  }
+
+  .lead {
+    max-width: 46em;
+  }
+}
+
+// Maturity line: quiet metadata above the badge row.
+.home-meta {
+  margin-bottom: $mx-space-1;
+}
+
+// Shields badge row: consistent height and rhythm.
+.home-badges {
+  a {
+    display: inline-block;
+    margin: 0 $mx-space-1 6px 0;
+    line-height: 1;
+  }
+
+  img {
+    height: 20px;
+    display: block;
+  }
+}
+
+// Video framed like the code panels so hero, video and code read as one unit.
+.video-container {
+  border-radius: $mx-radius;
+  overflow: hidden;
+  box-shadow: $mx-shadow-lg;
+  background-color: $mx-ink-900;
+}
+
+.video-row {
+  margin-top: $mx-space-4;
+  margin-bottom: $mx-space-4;
+}
+
 
 .header-container {
   background-color: black;
