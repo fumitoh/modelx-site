@@ -352,10 +352,9 @@ a {
       font-size: 54px;
     }
   }
-
-  .lead {
-    max-width: 46em;
-  }
+  // The lead runs the full hero width: the container already bounds line
+  // length, and an extra measure cap read as a left-shifted text block on
+  // wide windows.
 }
 
 // Maturity line: quiet metadata above the badge row.
